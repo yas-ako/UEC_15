@@ -9,7 +9,7 @@ int main(void)
   int i;
   for (i = 0; i < 20; ++i)
   {
-    imgNumber++;
+    imgNumber=0;
     img_clear();
     img_fillcircle(c1, 20 + i * 8, 100, 20);
     img_write();
