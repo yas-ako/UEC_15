@@ -4,7 +4,7 @@ static int imgNumber = 0;
 
 int main(void)
 {
-  struct color c1 = {30, 255, 0};
+  struct color c1 = {30 , 255, 0};
   struct color c2 = {255, 0, 0};
   int i;
   for (i = 0; i < 20; ++i)
