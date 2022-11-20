@@ -13,6 +13,7 @@ void img_clear(void);
 void img_write(void);
 void img_putpixel(struct color c, int x, int y);
 void img_fillcircle(struct color c, double x, double y, double r);
+void img_filltriangle(struct color c,double x0,double y0,double z0,double f0,double x1,double y1,double z1,double f1,double x2,double y2,double z2,double f2);
 void layer_1(double t);
 void layer_2(double t);
 void layer_3(double t);
