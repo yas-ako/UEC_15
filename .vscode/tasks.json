@@ -10,9 +10,9 @@
         "${file}",
         "-o",
         "${fileDirname}\\${fileBasenameNoExtension}.exe"
-      ],
+      ], 
       "options": {
-        "cwd": "D:/ProgramFile/mingw64/bin"
+        "cwd": "D:/ProgramFile/mingw64/bin" 
       },
       "problemMatcher": [
         "$gcc"
