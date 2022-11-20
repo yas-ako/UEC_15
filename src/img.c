@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "img.h"
+#include <math.h>
 
 static unsigned char buf[HEIGHT][WIDTH][3];
 static int filecnt = 0;
