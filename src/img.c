@@ -20,7 +20,7 @@ void img_clear(void)
 
 void img_write(void)
 {
-  sprintf(fname, "img/img%04d.ppm", ++filecnt);
+  sprintf(fname, "../img/img%04d.ppm", ++filecnt);
   FILE *f = fopen(fname, "wb");
   if (f == NULL)
   {
@@ -58,4 +58,8 @@ void img_fillcircle(struct color c, double x, double y, double r)
       }
     }
   }
+}
+
+void img_fillpolygon()
+{
 }
