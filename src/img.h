@@ -1,6 +1,6 @@
 #define WIDTH 720
 #define HEIGHT 480
-#define TIME 10 * 100 //0.1秒が何回あるか
+#define TIME 15 * 100 //0.1秒が何回あるか
 #define DELAY 5
 
 struct color
