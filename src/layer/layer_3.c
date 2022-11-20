@@ -2,6 +2,7 @@
 #include <stdlib.h>
 #include "..\img.h"
 
+//市街地
 void layer_3(double t)
 {
   struct color c3 = {40, 55, 0};

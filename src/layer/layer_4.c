@@ -2,6 +2,7 @@
 #include <stdlib.h>
 #include "..\img.h"
 
+//田んぼ
 void layer_4(double t)
 {
   struct color c3 = {40, 55, 0};

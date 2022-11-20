@@ -2,6 +2,7 @@
 #include <stdlib.h>
 #include "..\img.h"
 
+//低い山
 void layer_2(double t)
 {
   struct color c3 = {40, 55, 0};
