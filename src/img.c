@@ -11,7 +11,7 @@ void img_clear(void)
   int i, j;
   for (j = 0; j < HEIGHT; ++j)
   {
-    for (i = 0; i < WIDTH; ++i)
+    for (i = 0;  i < WIDTH; ++i)
     {
       buf[j][i][0] = buf[j][i][1] = buf[j][i][2] = 255;
     }
