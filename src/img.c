@@ -14,7 +14,7 @@ void img_clear(void)
   {
     for (i = 0; i < WIDTH; ++i)
     {
-      buf[j][i][0] = buf[j][i][1] = buf[j][i][2] = 255;
+      buf[j][i][0] = buf[j][i][1] = buf[j][i][2] = 180;
     }
   }
 }
@@ -61,24 +61,24 @@ void img_fillcircle(struct color c, double x, double y, double r)
   }
 }
 
-void img_fillpolygon(struct color c, Polygon polygon)
+void img_fillpolygon(struct color c, Point point, Polygon polygon)
 {
-  // max_min_pointにpolygonをいれる．
-  //上の戻り値で下の展開をする．
-  // minX = (最小値X座標)
-  // maxX = (最大値X座標)
-  // minY = (最小値Y座標)
-  // maxY = (最大値Y座標)
-  //   for (j = jmin; j <= jmax; ++j)
-  //   {
-  //     for (i = imin; i <= imax; ++i)
-  //     {
-  //       if (現在の点のデータと，polygonを，IsInPolygon(点，polygon)に代入した結果)
-  //       {
-  //         img_putpixel(c, i, j);
-  //       }
-  //     }
-  //   }
+  Polygon max_min_points;
+  max_min_points = max_min_point(polygon); // max_min_pointにpolygonをいれる． //上の戻り値で下の展開をする．
+  double minX = (max_min_points.p[0].x);   // 最小値X座標
+  double minY = (max_min_points.p[0].y);   // 最小値Y座標
+  double maxX = (max_min_points.p[1].x);   // 最大値X座標
+  double maxY = (max_min_points.p[1].y);   // 最大値Y座標
+  for (int j = (int)(minY); j <= maxY; ++j)
+  {
+    for (int i = minX; i <= maxX; ++i)
+    {
+      if (IsInPolygon(point, polygon))
+      {
+        img_putpixel(c, i, j);
+      }
+    }
+  }
 }
 
 static double oprod(double a, double b, double c, double d)

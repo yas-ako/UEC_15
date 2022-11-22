@@ -42,21 +42,27 @@ double AngleOf2Vector(vector A, vector B)
   return sita;
 }
 
-//点が多角形の中にあるか
 int IsInPolygon(Point point, Polygon polygon)
 {
-  //角度の合計を入れる変数を定義
+  double degree = 0; //角度の合計を入れる変数を定義
+  Point p1;
+  Point p2;
   //一つ目の点のデータを展開
-  // for
-  //  二つ目の点を取得
-  //    if 二つ目の点の次があるのなら，
-  //      三つ目の点のデータを取得
-  //    else なければ，
-  //      一番最初の値を取得
-  //    end 終わり
-  //  点のデータをAngleOf3Points()に入れて，戻戻り値を取得
-  //  角度を足す
-  // end
+  p1.x = point.x;
+  p1.y = point.y;
+  for (int i = 0; i < polygon.n; i++)
+  {
+    //  二つ目の点を取得
+    
+    //    if 二つ目の点の次があるのなら，
+    //      三つ目の点のデータを取得
+    //    else なければ，
+    //      一番最初の値を取得
+    //    end 終わり
+    //  点のデータをAngleOf3Points()に入れて，戻戻り値を取得
+    //  角度を足す
+    // end
+  }
 
   // if 角度の合計が，0.01以下である
   //   0
@@ -75,15 +81,30 @@ double AngleOf3Points(Point point1, Point pont2, Point point3)
 
 Polygon max_min_point(Polygon polygon)
 {
-  // int minX = WIDTH;
-  // int maxX = 0;
-  // int minY = WIDTH;
-  // int maxY = 0;
+  int minX = WIDTH;
+  int maxX = 0;
+  int minY = WIDTH;
+  int maxY = 0;
   // for polygonを順に展開
-  //   もし，minXが，polygon[繰り返し変数].x より大きければ，
-  //       minX = polygon[繰り返し変数].x
-  //   もし，minYが，polygon[繰り返し変数].y より大きければ，
-  //       minY = polygon[繰り返し変数].y
-  // end
-  // return polygonとして，二つの点のデータを返す．
+  for (int i = 0; i < polygon.n; i++)
+  {
+    if (minX > polygon.p[i].x)
+    {
+      //   もし，minXが，polygon[繰り返し変数].x より大きければ，
+      //       minX = polygon[繰り返し変数].x
+      minX = polygon.p[i].x;
+    }
+    if (minY > polygon.p[i].y)
+    {
+      //   もし，minYが，polygon[繰り返し変数].y より大きければ，
+      //       minY = polygon[繰り返し変数].y
+      minY = polygon.p[i].y;
+    }
+  }
+  Polygon max_min;
+  max_min.p[0].x = minX;
+  max_min.p[0].y = minY;
+  max_min.p[1].x = maxX;
+  max_min.p[1].y = maxY;
+  return max_min;
 }
