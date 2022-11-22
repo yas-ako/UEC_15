@@ -1,0 +1,8 @@
+{
+  "files.associations": {
+    "*.anm": "lua",
+    "Guardfile": "ruby",
+    "*.txt": "plaintext",
+    "math.h": "c"
+  }
+}
