@@ -61,20 +61,32 @@ void img_fillcircle(struct color c, double x, double y, double r)
   }
 }
 
-void img_fillpolygon(struct color c, Point point, Polygon polygon)
+void img_fillpolygon(struct color c, Polygon polygon)
 {
+
   Polygon max_min_points;
   max_min_points = max_min_point(polygon); // max_min_pointにpolygonをいれる． //上の戻り値で下の展開をする．
-  double minX = (max_min_points.p[0].x);   // 最小値X座標
-  double minY = (max_min_points.p[0].y);   // 最小値Y座標
-  double maxX = (max_min_points.p[1].x);   // 最大値X座標
-  double maxY = (max_min_points.p[1].y);   // 最大値Y座標
-  for (int j = (int)(minY); j <= maxY; ++j)
+  int minX = max_min_points.p[0].x;        // 最小値X座標
+  int minY = max_min_points.p[0].y;        // 最小値Y座標
+  int maxX = max_min_points.p[1].x;        // 最大値X座標
+  int maxY = max_min_points.p[1].y;        // 最大値Y座標
+
+  // double minX = (max_min_points.p[0].x);   // 最小値X座標
+  // double minY = (max_min_points.p[0].y);   // 最小値Y座標
+  // double maxX = (max_min_points.p[1].x);   // 最大値X座標
+  // double maxY = (max_min_points.p[1].y);   // 最大値Y座標
+
+  // printf("min x:%d y:%d\nmax x:%d y:%d\n", minX, minY, maxX, maxY);
+  for (int j = minY; j <= maxY; ++j)
   {
     for (int i = minX; i <= maxX; ++i)
     {
-      if (IsInPolygon(point, polygon))
+      Point p;
+      p.x = i;
+      p.y = j;
+      if (IsInPolygon(p, polygon) == 1)
       {
+      // printf("%f\n", p.x);
         img_putpixel(c, i, j);
       }
     }

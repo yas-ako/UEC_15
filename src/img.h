@@ -3,7 +3,7 @@
 
 #define WIDTH 720
 #define HEIGHT 480
-#define TIME 15 * 100 // 0.01秒が何回あるか
+#define TIME 7 * 100 // 0.01秒が何回あるか
 #define DELAY 5
 #define MAX_POLYGON 10
 
@@ -41,6 +41,7 @@ void layer_3(double t);
 void layer_4(double t);
 void layer_5(double t);
 
+void img_fillpolygon(struct color c, Polygon polygon);
 double get_vector_length(vector v);
 double dot_product(vector vl, vector vr);
 double AngleOf2Vector(vector A, vector B);
