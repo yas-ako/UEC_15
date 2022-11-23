@@ -167,3 +167,10 @@ void img_filltriangle(struct color c, double x0, double y0, double z0, double f0
   img_fillconvex(c, 3, az1, af1);
   img_fillconvex(c, 3, az2, af2);
 }
+void img_fillline(struct color c,double x0,double y0,double x1,double y1,double w) {
+  double dx=y1-y0,dy=x0-x1,n=0.5*w/sqrt(dx*dx+dy*dy);
+  dx *=n; dy *=n;
+  double ax[]={x0-dx,x0+dx,x1+dx,x1-dx,x0-dx};
+  double ay[]={y0-dy,y0+dy,y1+dy,y1-dy,y0-dy};
+  img_fillconvex(c,4,ax,ay);
+}

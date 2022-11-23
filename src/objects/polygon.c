@@ -21,6 +21,7 @@ double get_vector_length(vector v)
 //ベクトル内積
 double dot_product(vector vl, vector vr)
 {
+  
   // printf("%f %f %f %f %f\n", vl.x, vr.x, vl.y, vr.y, vl.x * vr.x + vl.y * vr.y);
   return vl.x * vr.x + vl.y * vr.y;
 }
