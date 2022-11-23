@@ -14,7 +14,9 @@ void img_clear(void)
   {
     for (i = 0; i < WIDTH; ++i)
     {
-      buf[j][i][0] = buf[j][i][1] = buf[j][i][2] = 180;
+      buf[j][i][0] = 152;
+      buf[j][i][1] = 240;
+      buf[j][i][2] = 250;
     }
   }
 }
@@ -86,7 +88,7 @@ void img_fillpolygon(struct color c, Polygon polygon)
       p.y = j;
       if (IsInPolygon(p, polygon) == 1)
       {
-      // printf("%f\n", p.x);
+        // printf("%f\n", p.x);
         img_putpixel(c, i, j);
       }
     }
@@ -167,10 +169,12 @@ void img_filltriangle(struct color c, double x0, double y0, double z0, double f0
   img_fillconvex(c, 3, az1, af1);
   img_fillconvex(c, 3, az2, af2);
 }
-void img_fillline(struct color c,double x0,double y0,double x1,double y1,double w) {
-  double dx=y1-y0,dy=x0-x1,n=0.5*w/sqrt(dx*dx+dy*dy);
-  dx *=n; dy *=n;
-  double ax[]={x0-dx,x0+dx,x1+dx,x1-dx,x0-dx};
-  double ay[]={y0-dy,y0+dy,y1+dy,y1-dy,y0-dy};
-  img_fillconvex(c,4,ax,ay);
+void img_fillline(struct color c, double x0, double y0, double x1, double y1, double w)
+{
+  double dx = y1 - y0, dy = x0 - x1, n = 0.5 * w / sqrt(dx * dx + dy * dy);
+  dx *= n;
+  dy *= n;
+  double ax[] = {x0 - dx, x0 + dx, x1 + dx, x1 - dx, x0 - dx};
+  double ay[] = {y0 - dy, y0 + dy, y1 + dy, y1 - dy, y0 - dy};
+  img_fillconvex(c, 4, ax, ay);
 }
