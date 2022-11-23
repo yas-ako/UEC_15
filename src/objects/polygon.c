@@ -11,7 +11,7 @@
 // double get_length(vector v)
 // {
 // }
-
+/*
 //ベクトルの長さを計算する
 double get_vector_length(vector v)
 {
@@ -45,7 +45,7 @@ double AngleOf2Vector(vector A, vector B)
   sita = sita * 180.0 / M_PI;
 
   return sita;
-}
+}*/
 
 int IsInPolygon(Point point, Polygon polygon)
 {
@@ -101,7 +101,7 @@ int IsInPolygon(Point point, Polygon polygon)
     double g = ax * by - ay * bx;
     // printf("%f %f\n", cosine, g);
     // printf("3 %f\n", cosine);
-
+    cosine = acos(cosine) * 180.0 / M_PI;
     // degree = degree + (acos(cosine) * 180.0) / M_PI;
 
     // double e = acos(cosine);
@@ -128,13 +128,13 @@ int IsInPolygon(Point point, Polygon polygon)
   //   // degree == 0;
   //   return 0;
   // }
-  if (degree >= 0.01)
+  if (fabs(degree) >= 0.01)
   {
     return 1;
   }
   return 0;
 }
-
+/*
 //多角形の隣り合った2点と，調べたい点のなす角を求める
 double AngleOf3Points(Point point1, Point point2, Point point3)
 {
@@ -191,4 +191,4 @@ Polygon max_min_point(Polygon polygon)
   max_min.p[1].x = maxX;
   max_min.p[1].y = maxY;
   return max_min;
-}
+}*/
