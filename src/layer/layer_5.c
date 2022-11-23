@@ -6,5 +6,5 @@
 void layer_5(double t)
 {
   struct color c5 = {128, 128, 128};
-  img_fillline(c5, 0 + t * 8, 480, 0 + t * 8, 0, 25);
+  img_fillline(c5, 0 + (int)(t * 1440 + 0.5) % (WIDTH * 2), 480, 0 + (int)(t * 1440 + 0.5) % (WIDTH * 2), 0, 25);
 }
