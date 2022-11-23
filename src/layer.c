@@ -1,4 +1,4 @@
-// animate1 --- create animation using img lib.
+#include <stdio.h>
 #include "img.h"
 static int imgNumber = 0;
 
@@ -28,4 +28,5 @@ int main(void)
   //   img_fillcircle(c2, 180, 100 + i * 5, 20 - i);
   //   img_write();
   // }
+  printf("exported\n");
 }

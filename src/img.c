@@ -68,10 +68,11 @@ void img_fillpolygon(struct color c, Polygon polygon)
 
   Polygon max_min_points;
   max_min_points = max_min_point(polygon); // max_min_pointにpolygonをいれる． //上の戻り値で下の展開をする．
-  int minX = max_min_points.p[0].x;        // 最小値X座標
-  int minY = max_min_points.p[0].y;        // 最小値Y座標
-  int maxX = max_min_points.p[1].x;        // 最大値X座標
-  int maxY = max_min_points.p[1].y;        // 最大値Y座標
+
+  int minX = 0;      // max_min_points.p[0].x;        // 最小値X座標
+  int minY = 0;      // max_min_points.p[0].y;        // 最小値Y座標
+  int maxX = WIDTH;  // max_min_points.p[1].x;        // 最大値X座標
+  int maxY = HEIGHT; // max_min_points.p[1].y;        // 最大値Y座標
 
   // double minX = (max_min_points.p[0].x);   // 最小値X座標
   // double minY = (max_min_points.p[0].y);   // 最小値Y座標

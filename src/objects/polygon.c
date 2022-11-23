@@ -79,32 +79,60 @@ int IsInPolygon(Point point, Polygon polygon)
       p3.y = polygon.p[i + 1].y;
       // printf("  2 :%f %f\n", p3.x, p3.y);
     }
-
+    // printf("    %f,%f %f,%f %f,%f\n", p1.x, p1.y, p2.x, p2.y, p3.x, p3.y);
+    // /*
     double ax = p2.x - p1.x;
     double ay = p2.y - p1.y;
     double bx = p3.x - p1.x;
     double by = p3.y - p1.y;
+    // printf("1 %f\n", ax * bx + ay * by);
     // printf("%f %f %f %f\n", ax, ay, bx, by);
-    // printf("%f\n", (sqrt(ax * ax + ay * ay) * sqrt(bx * bx + by * by)));
-    double cosine = (ax * bx + ay * by) / (sqrt(ax * ax + ay * ay) * sqrt(bx * bx + by * by));
-    // printf("%f\n", cosine);
-    degree = degree + (acos(cosine) * 180.0) / M_PI;
+    // printf("2 %f\n", (sqrt(ax * ax + ay * ay) * sqrt(bx * bx + by * by)));
 
+    // double a = ax * bx + ay * by;
+    // double b = sqrt(ax * ax + ay * ay);
+    // b *= b < 0 ? -1 : 1;
+    // double c = sqrt(bx * bx + by * by);
+    // c *= c < 0 ? -1 : 1;
+    // double d = b * c;
+
+    // double cosine = a / d;
+    double cosine = (ax * bx + ay * by) / (sqrt(ax * ax + ay * ay) * sqrt(bx * bx + by * by));
+    double g = ax * by - ay * bx;
+    // printf("%f %f\n", cosine, g);
+    // printf("3 %f\n", cosine);
+
+    // degree = degree + (acos(cosine) * 180.0) / M_PI;
+
+    // double e = acos(cosine);
+    // e = e * 180.0 / M_PI;
+    // degree = degree + e;
+    // printf("%f\n", degree);
+    // */
     // sita = sita * 180.0 / M_PI;
     // degree += AngleOf3Points(p1, p2, p3); // * 180.0 / M_PI; //  点のデータをAngleOf3Points()に入れて，戻り値を取得
+
+    degree += copysign(cosine, g);
   }
   // printf(": %f\n", degree);
 
   // if 角度の合計が，0.01以下である
-  if (degree >= 350)
+  // if (degree >= 390)// && degree >= 340)
+  // {
+  //   // printf("a");
+  //   // degree = 0.0;
+  //   return 1;
+  // }
+  // else
+  // {
+  //   // degree == 0;
+  //   return 0;
+  // }
+  if (degree >= 0.01)
   {
-    // printf("a");
     return 1;
   }
-  else
-  {
-    return 0;
-  }
+  return 0;
 }
 
 //多角形の隣り合った2点と，調べたい点のなす角を求める
@@ -156,6 +184,7 @@ Polygon max_min_point(Polygon polygon)
       maxY = polygon.p[i].y;
     }
   }
+
   Polygon max_min;
   max_min.p[0].x = minX;
   max_min.p[0].y = minY;

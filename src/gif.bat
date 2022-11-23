@@ -7,3 +7,4 @@ copy /y out.gif ..\gif\
 copy /y out.mp4 ..\gif\
 code D:\Works\Projects\117_C\UEC_15\gif\out.gif
 cd D:\Works\Projects\117_C\UEC_15\src
+echo copied
