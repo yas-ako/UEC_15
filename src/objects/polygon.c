@@ -21,7 +21,6 @@ double get_vector_length(vector v)
 //ベクトル内積
 double dot_product(vector vl, vector vr)
 {
-  
   // printf("%f %f %f %f %f\n", vl.x, vr.x, vl.y, vr.y, vl.x * vr.x + vl.y * vr.y);
   return vl.x * vr.x + vl.y * vr.y;
 }
@@ -32,7 +31,7 @@ double AngleOf2Vector(vector A, vector B)
   //ベクトルAとBの長さを計算する
   double length_A = get_vector_length(A);
   double length_B = get_vector_length(B);
-  printf("%f  %f\n", length_A * length_B, dot_product(A, B));
+  // printf("%f  %f\n", length_A * length_B, dot_product(A, B));
   //内積とベクトル長さを使ってcosθを求める
   double cos_sita = dot_product(A, B) / (length_A * length_B);
   // printf("%f\n", cos_sita);
@@ -43,7 +42,7 @@ double AngleOf2Vector(vector A, vector B)
   // printf("%f\n", sita);
 
   //ラジアンでなく0～180の角度でほしい場合はコメント外す
-  // sita = sita * 180.0 / M_PI;
+  sita = sita * 180.0 / M_PI;
 
   return sita;
 }
@@ -60,6 +59,7 @@ int IsInPolygon(Point point, Polygon polygon)
   p1.y = point.y;
   for (int i = 0; i < polygon.n; i++)
   {
+    // degree = 0;
     // 二つ目の点を取得
     p2.x = polygon.p[i].x;
     p2.y = polygon.p[i].y;
@@ -69,28 +69,41 @@ int IsInPolygon(Point point, Polygon polygon)
       // 次の点のデータを取得
       p3.x = polygon.p[0].x;
       p3.y = polygon.p[0].y;
+      // printf("  1 :%f %f\n", p3.x, p3.y);
     }
     else
     {
+      // printf("2");
       // 一番最初の値を取得
-      p3.x = polygon.p[0].x;
-      p3.y = polygon.p[0].y;
+      p3.x = polygon.p[i + 1].x;
+      p3.y = polygon.p[i + 1].y;
+      // printf("  2 :%f %f\n", p3.x, p3.y);
     }
 
-    degree += AngleOf3Points(p1, p2, p3) * 180.0 / M_PI; //  点のデータをAngleOf3Points()に入れて，戻り値を取得
-  }
+    double ax = p2.x - p1.x;
+    double ay = p2.y - p1.y;
+    double bx = p3.x - p1.x;
+    double by = p3.y - p1.y;
+    // printf("%f %f %f %f\n", ax, ay, bx, by);
+    // printf("%f\n", (sqrt(ax * ax + ay * ay) * sqrt(bx * bx + by * by)));
+    double cosine = (ax * bx + ay * by) / (sqrt(ax * ax + ay * ay) * sqrt(bx * bx + by * by));
+    // printf("%f\n", cosine);
+    degree = degree + (acos(cosine) * 180.0) / M_PI;
 
+    // sita = sita * 180.0 / M_PI;
+    // degree += AngleOf3Points(p1, p2, p3); // * 180.0 / M_PI; //  点のデータをAngleOf3Points()に入れて，戻り値を取得
+  }
   // printf(": %f\n", degree);
 
   // if 角度の合計が，0.01以下である
-  if (degree <= 0.01)
+  if (degree >= 350)
   {
     // printf("a");
-    return 0;
+    return 1;
   }
   else
   {
-    return 1;
+    return 0;
   }
 }
 
