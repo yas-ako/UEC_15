@@ -3,7 +3,7 @@
 
 #define WIDTH 720
 #define HEIGHT 480
-#define TIME 7 * 100 // 0.01秒が何回あるか
+#define TIME 15 * 100 // 0.01秒が何回あるか
 #define DELAY 5
 #define MAX_POLYGON 20
 
