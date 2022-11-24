@@ -1,10 +1,29 @@
 #ifndef _H_HEAD1_
 #define _H_HEAD1_
 
+/** @def
+ * 画面横幅
+ */
 #define WIDTH 720
+
+/** @def
+ * 画面縦幅
+ */
 #define HEIGHT 480
-#define TIME 15 * 100 // 0.01秒が何回あるか
+
+/** @def
+ * 0.01秒が何回あるか
+ */
+#define TIME 15 * 100
+
+/** @def
+ * １コマ当たりの時間
+ */
 #define DELAY 5
+
+/** @def
+ * ポリゴンの最大長点数
+ */
 #define MAX_POLYGON 20
 
 struct color
@@ -43,12 +62,6 @@ void layer_4(double t);
 void layer_5(double t);
 
 void img_fillpolygon(struct color c, Polygon polygon);
-// double get_vector_length(vector v);
-// double dot_product(vector vl, vector vr);
-// double AngleOf2Vector(vector A, vector B);
-
 int IsInPolygon(Point point, Polygon polygon);
-// double AngleOf3Points(Point point1, Point pont2, Point point3);
-// Polygon max_min_point(Polygon polygon);
 
 #endif // _H_HEAD1_

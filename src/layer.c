@@ -1,32 +1,33 @@
+/**
+ * @file layer.c
+ * @brief レイヤを呼び出す
+ */
+
 #include <stdio.h>
 #include "img.h"
-static int imgNumber = 0;
 
+/** 現在の画像の出力枚数 */
+static int i;
+
+/** アプリケーション実行時に、ほかの関数を実行する関数 */
 int main(void)
 {
-  struct color c1 = {30, 255, 0};
-  struct color c2 = {255, 0, 0};
-  int i;
-
   for (i = 0; i < TIME / DELAY; ++i)
   {
+    //画像をクリア
     img_clear();
+
+    //レイヤごとに出力　代入している値は、動画開始からの時間(小数)
     layer_1((i / 100.0) * DELAY);
     layer_2((i / 100.0) * DELAY);
     layer_3((i / 100.0) * DELAY);
     layer_4((i / 100.0) * DELAY);
     layer_5((i / 100.0) * DELAY);
-    // layer_2((i * DELAY) / 100);
-    img_putpixel(c1, WIDTH / 2, HEIGHT / 2);
-    img_fillcircle(c1, 20 + i * 8, 100, 20);
+
+    // 画像を出力
     img_write();
   }
 
-  // for (i = 0; i < 20; ++i)
-  // {
-  //   img_clear();
-  //   img_fillcircle(c2, 180, 100 + i * 5, 20 - i);
-  //   img_write();
-  // }
-  printf("exported\n");
+  //完了 
+  printf("Output is complete.\n");
 }
