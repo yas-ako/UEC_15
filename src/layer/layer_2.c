@@ -32,14 +32,13 @@ void layer_2(double t)
   {
 
     Point p1;
-    p1.x = 5 * t + points_list[i][0];
+    p1.x = 10 * t + points_list[i][0];
     p1.y = points_list[i][1];
     polygon1.p[i] = p1;
 
-    p1.x = 5 * t + points_list[i][0] - WIDTH; //同じ多角形の山を、画面の幅分だけ左にずらす。
+    p1.x = 10 * t + points_list[i][0] - WIDTH; //同じ多角形の山を、画面の幅分だけ左にずらす。
     p1.y = points_list[i][1];
     polygon2.p[i] = p1;
-
   }
 
   img_fillpolygon(c3, polygon1);

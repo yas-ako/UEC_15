@@ -178,3 +178,17 @@ void img_fillline(struct color c, double x0, double y0, double x1, double y1, do
   double ay[] = {y0 - dy, y0 + dy, y1 + dy, y1 - dy, y0 - dy};
   img_fillconvex(c, 4, ax, ay);
 }
+
+void img_fillrect(struct color c, double x, double y, double w, double h)
+{
+  int wmin = (int)(x), wmax = (int)(x + w);
+  int hmin = (int)(y), hmax = (int)(y + h);
+  int i, j;
+  for (j = hmin; j <= hmax; ++j)
+  {
+    for (i = wmin; i <= wmax; ++i)
+    {
+      img_putpixel(c, i, j);
+    }
+  }
+}

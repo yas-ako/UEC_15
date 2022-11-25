@@ -64,4 +64,6 @@ void layer_5(double t);
 void img_fillpolygon(struct color c, Polygon polygon);
 int IsInPolygon(Point point, Polygon polygon);
 
+void img_fillrect(struct color c, double x, double y, double w, double h);
+
 #endif // _H_HEAD1_
