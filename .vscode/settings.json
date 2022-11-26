@@ -4,6 +4,7 @@
     "Guardfile": "ruby",
     "*.txt": "plaintext",
     "math.h": "c",
-    "img.h": "c"
+    "img.h": "c",
+    "stdio.h": "c"
   }
 }

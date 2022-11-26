@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include "..\img.h"
 
-//低い山
+// 低い山
 void layer_2(double t)
 {
   int points_number = 11;
@@ -21,10 +21,10 @@ void layer_2(double t)
       {-1, -1},
   };
 
-  struct color c3 = {40, 55, 0};
+  struct color c3 = {95, 131, 0};
 
-  Polygon polygon1; //初めから見えているポリゴン
-  Polygon polygon2; //最初は左に隠れていて、少しずつ見えてくるポリゴン
+  Polygon polygon1; // 初めから見えているポリゴン
+  Polygon polygon2; // 最初は左に隠れていて、少しずつ見えてくるポリゴン
   polygon1.n = points_number;
   polygon2.n = points_number;
 
@@ -36,7 +36,7 @@ void layer_2(double t)
     p1.y = points_list[i][1];
     polygon1.p[i] = p1;
 
-    p1.x = 10 * t + points_list[i][0] - WIDTH; //同じ多角形の山を、画面の幅分だけ左にずらす。
+    p1.x = 10 * t + points_list[i][0] - WIDTH; // 同じ多角形の山を、画面の幅分だけ左にずらす。
     p1.y = points_list[i][1];
     polygon2.p[i] = p1;
   }

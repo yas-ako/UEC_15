@@ -29,10 +29,10 @@ void img_fillcircle(struct color c, double x, double y, double r)
  */
 void img_fillpolygon(struct color c, Polygon polygon)
 {
-  int minX = 0;      // max_min_points.p[0].x;        // 最小値X座標
-  int minY = 0;      // max_min_points.p[0].y;        // 最小値Y座標
-  int maxX = WIDTH;  // max_min_points.p[1].x;        // 最大値X座標
-  int maxY = HEIGHT; // max_min_points.p[1].y;        // 最大値Y座標
+  int minX = 0;      // 最小値X座標
+  int minY = 0;      // 最小値Y座標
+  int maxX = WIDTH;  // 最大値X座標
+  int maxY = HEIGHT; // 最大値Y座標
 
   for (int j = minY; j <= maxY; ++j)
   {
@@ -44,7 +44,7 @@ void img_fillpolygon(struct color c, Polygon polygon)
 
       if (IsInPolygon(p, polygon) == 1) // 点が多角形の中にあるかどうか
       {
-        //あったら、点を描く
+        // あったら、点を描く
         img_putpixel(c, i, j);
       }
     }

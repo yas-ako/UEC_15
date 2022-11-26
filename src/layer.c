@@ -18,17 +18,17 @@ int main(void)
     img_clear();
 
     //レイヤごとに出力　代入している値は、動画開始からの時間(小数)
-    layer_0();
-    layer_1((i / 100.0) * DELAY);
-    layer_2((i / 100.0) * DELAY);
-    layer_3((i / 100.0) * DELAY);
-    layer_4((i / 100.0) * DELAY);
-    layer_5((i / 100.0) * DELAY);
+    layer_0();                    // ずっと同じ画像
+    layer_1((i / 100.0) * DELAY); // レイヤ1
+    layer_2((i / 100.0) * DELAY); // レイヤ2
+    layer_3((i / 100.0) * DELAY); // レイヤ3
+    layer_4((i / 100.0) * DELAY); // レイヤ4
+    layer_5((i / 100.0) * DELAY); // レイヤ5
 
     // 画像を出力
     img_write();
   }
 
   //完了
-  printf("Output is complete.\n");
+  printf("Complete.\n");
 }

@@ -10,7 +10,7 @@
 
 int IsInPolygon(Point point, Polygon polygon)
 {
-  double degree = 0; //角度の合計を入れる変数を定義
+  double degree = 0; // 角度の合計を入れる変数を定義
   Point p1;          // 調べる点
   Point p2;          // 多角形の頂点１
   Point p3;          // 多角形の頂点２

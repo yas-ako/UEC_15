@@ -1,5 +1,5 @@
-#ifndef _H_HEAD1_
-#define _H_HEAD1_
+#ifndef _img_
+#define _img_
 
 /** @def
  * 画面横幅
@@ -67,4 +67,4 @@ int IsInPolygon(Point point, Polygon polygon);
 
 void img_fillrect(struct color c, double x, double y, double w, double h);
 
-#endif // _H_HEAD1_
+#endif // _img_
