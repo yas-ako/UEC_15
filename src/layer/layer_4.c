@@ -51,6 +51,5 @@ struct color field = {190, 209, 44};
 void layer_4(double t)
 {
   // img_fillline(field, 0, 20, WIDTH, 20, 100);
-  img_fillrect(field, 0, 30, WIDTH, 100);
-  
+  img_fillrect(field, 0, 30, WIDTH, 130);
 }

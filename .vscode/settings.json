@@ -3,6 +3,7 @@
     "*.anm": "lua",
     "Guardfile": "ruby",
     "*.txt": "plaintext",
-    "math.h": "c"
+    "math.h": "c",
+    "img.h": "c"
   }
 }

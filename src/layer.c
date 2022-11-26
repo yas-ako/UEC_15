@@ -3,7 +3,6 @@
  * @brief レイヤを呼び出す
  */
 
-
 #include <stdio.h>
 #include "img.h"
 
@@ -19,6 +18,7 @@ int main(void)
     img_clear();
 
     //レイヤごとに出力　代入している値は、動画開始からの時間(小数)
+    layer_0();
     layer_1((i / 100.0) * DELAY);
     layer_2((i / 100.0) * DELAY);
     layer_3((i / 100.0) * DELAY);
@@ -29,6 +29,6 @@ int main(void)
     img_write();
   }
 
-  //完了 
+  //完了
   printf("Output is complete.\n");
 }

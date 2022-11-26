@@ -11,9 +11,9 @@
 int IsInPolygon(Point point, Polygon polygon)
 {
   double degree = 0; //角度の合計を入れる変数を定義
-  Point p1; // 調べる点
-  Point p2; // 多角形の頂点１
-  Point p3; // 多角形の頂点２
+  Point p1;          // 調べる点
+  Point p2;          // 多角形の頂点１
+  Point p3;          // 多角形の頂点２
 
   // 調べる点のデータを展開
   p1.x = point.x;
@@ -23,7 +23,7 @@ int IsInPolygon(Point point, Polygon polygon)
     // 多角形の頂点１を取得
     p2.x = polygon.p[i].x;
     p2.y = polygon.p[i].y;
-  
+
     // 「多角形の頂点１」に次がないかどうか
     if (i + 1 == polygon.n)
     {
@@ -37,7 +37,7 @@ int IsInPolygon(Point point, Polygon polygon)
       p3.x = polygon.p[i + 1].x;
       p3.y = polygon.p[i + 1].y;
     }
-  
+
     // ベクトルの成分を計算
     double ax = p2.x - p1.x;
     double ay = p2.y - p1.y;
@@ -55,15 +55,15 @@ int IsInPolygon(Point point, Polygon polygon)
 
     // 外積の符号をコサインにコピーし、足し合わせる
     degree += copysign(cosine, g);
-  }// 繰り返し終わり
-  
+  } // 繰り返し終わり
+
   // 角度の合計の絶対値が，0.01以上かどうか
   if (fabs(degree) >= 0.01)
   {
-    //0.01以上であれば、多角形の中
+    // 0.01以上であれば、多角形の中
     return 1;
   }
 
-  //0.01未満であれば、多角形の外
+  // 0.01未満であれば、多角形の外
   return 0;
 }

@@ -3,17 +3,6 @@
 #include "..\img.h"
 #include <math.h>
 
-void img_putpixel(struct color c, int x, int y)
-{
-  if (x < 0 || x >= WIDTH || y < 0 || y >= HEIGHT)
-  {
-    return;
-  }
-  buf[HEIGHT - y - 1][x][0] = c.r;
-  buf[HEIGHT - y - 1][x][1] = c.g;
-  buf[HEIGHT - y - 1][x][2] = c.b;
-}
-
 void img_fillcircle(struct color c, double x, double y, double r)
 {
   int imin = (int)(x - r - 1), imax = (int)(x + r + 1);
@@ -145,4 +134,17 @@ void img_fillline(struct color c, double x0, double y0, double x1, double y1, do
   double ax[] = {x0 - dx, x0 + dx, x1 + dx, x1 - dx, x0 - dx};
   double ay[] = {y0 - dy, y0 + dy, y1 + dy, y1 - dy, y0 - dy};
   img_fillconvex(c, 4, ax, ay);
+}
+void img_fillrect(struct color c, double x, double y, double w, double h)
+{
+  int wmin = (int)(x), wmax = (int)(x + w);
+  int hmin = (int)(y), hmax = (int)(y + h);
+  int i, j;
+  for (j = hmin; j <= hmax; ++j)
+  {
+    for (i = wmin; i <= wmax; ++i)
+    {
+      img_putpixel(c, i, j);
+    }
+  }
 }

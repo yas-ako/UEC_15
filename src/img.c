@@ -70,7 +70,7 @@ void img_fillcircle(struct color c, double x, double y, double r)
  * @param (c) 色
  * @param (polygon) 多角形のデータ
  * @sa IsInPolygon
- */
+ *//*
 void img_fillpolygon(struct color c, Polygon polygon)
 {
   int minX = 0;      // max_min_points.p[0].x;        // 最小値X座標
